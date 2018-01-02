@@ -3,10 +3,14 @@ package cn.com.timemachine.ui.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +19,7 @@ import com.gyf.barlibrary.ImmersionBar;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.com.timemachine.R;
 
 /**
  * Created by apple on 2017/11/20.
@@ -23,6 +28,10 @@ import butterknife.Unbinder;
 public abstract class BaseLazyFragment  extends Fragment {
     protected Activity mActivity;
     protected View mRootView;
+    private AlertDialog mAlertDialog;
+
+    protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
+    protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
 
     /**
      * 是否对用户可见
@@ -86,7 +95,6 @@ public abstract class BaseLazyFragment  extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
         if (getUserVisibleHint()) {
             mIsVisible = true;
             onVisible();
@@ -150,7 +158,8 @@ public abstract class BaseLazyFragment  extends Fragment {
      */
     protected void initImmersionBar() {
         mImmersionBar = ImmersionBar.with(this);
-        mImmersionBar.keyboardEnable(true).navigationBarWithKitkatEnable(false).init();
+
+      //  mImmersionBar.keyboardEnable(true).navigationBarWithKitkatEnable(false).init();
     }
 
     /**
@@ -185,5 +194,30 @@ public abstract class BaseLazyFragment  extends Fragment {
     protected <T extends View> T findActivityViewById(@IdRes int id) {
         return (T) mActivity.findViewById(id);
     }
-
+    protected void requestPermission(final String permission, String rationale, final int requestCode) {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(mActivity, permission)) {
+            showAlertDialog(getString(R.string.permission_title_rationale), rationale,
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(mActivity,
+                                    new String[]{permission}, requestCode);
+                        }
+                    }, getString(R.string.label_ok), null, getString(R.string.label_cancel));
+        } else {
+            ActivityCompat.requestPermissions(mActivity, new String[]{permission}, requestCode);
+        }
+    }
+    protected void showAlertDialog(@Nullable String title, @Nullable String message,
+                                   @Nullable DialogInterface.OnClickListener onPositiveButtonClickListener,
+                                   @NonNull String positiveText,
+                                   @Nullable DialogInterface.OnClickListener onNegativeButtonClickListener,
+                                   @NonNull String negativeText) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton(positiveText, onPositiveButtonClickListener);
+        builder.setNegativeButton(negativeText, onNegativeButtonClickListener);
+        mAlertDialog = builder.show();
+    }
 }
