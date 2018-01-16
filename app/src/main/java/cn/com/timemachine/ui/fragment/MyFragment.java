@@ -66,19 +66,30 @@ public class MyFragment extends BaseLazyFragment {
     }
 
     @Override
+    protected boolean isLazyLoad() {
+        return false;
+    }
+
+    @Override
     protected int setLayoutId() {
         return R.layout.fragment_my;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         unbinder = ButterKnife.bind(this, rootView);
-        Glide.with(this).load(R.mipmap.header)
+       /* Glide.with(this).load(R.mipmap.header)
                 .apply(bitmapTransform(new BlurTransformation(25)))
-                .into(bvDynamicBlur);
+                .into(bvDynamicBlur);*/
+
+       if(glideImageUtils!=null&&images.size()!=0){
+           Glide.with(this).load(images.get(0).path)
+                   .apply(bitmapTransform(new BlurTransformation(25)))
+                   .into(bvDynamicBlur);
+           glideImageUtils.displayImagePreview(getActivity(), images.get(0).path, circularImage, 0, 0);
+       }
         return rootView;
     }
 
@@ -158,7 +169,6 @@ public class MyFragment extends BaseLazyFragment {
                 Glide.with(this).load(images.get(0).path)
                         .apply(bitmapTransform(new BlurTransformation(25)))
                         .into(bvDynamicBlur);
-
                 glideImageUtils.displayImagePreview(getActivity(), images.get(0).path, circularImage, 0, 0);
             } else {
                 Toast.makeText(getActivity(), "没有数据", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,7 @@
 package cn.com.timemachine.ui.adapter;
 
 import android.support.annotation.Nullable;
+import android.text.Layout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -15,14 +16,15 @@ import cn.com.timemachine.R;
 
 public class HomeAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 
-    public HomeAdapter( @Nullable List<String> data) {
-        super(R.layout.home_item, data);
+    public HomeAdapter(int layout, List<String> data) {
+        super(layout, data);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, String item) {
 
         helper.setText(R.id.user_nick,item);
-
     }
+
+
 }

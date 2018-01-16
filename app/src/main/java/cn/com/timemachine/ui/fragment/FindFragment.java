@@ -51,6 +51,19 @@ public class FindFragment extends BaseLazyFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         tvTitle.setText("时光机(20)");
+        List<String>list=new ArrayList<>();
+        list.add("Aname");
+        list.add("Bname");
+        list.add("Cname");
+        list.add("Dname");
+        list.add("Ename");
+        list.add("Fname");
+        mHomeAdapter=new HomeAdapter(R.layout.home_item,null);
+        recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recycler.setAdapter(mHomeAdapter);
+        mHomeAdapter.addData(list);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.search_header_item, null);
+        mHomeAdapter.addHeaderView(view);
 
     }
 
@@ -70,20 +83,7 @@ public class FindFragment extends BaseLazyFragment {
 
     @Override
     protected void initData() {
-        List<String>list=new ArrayList<>();
-        list.add("Aname");
-        list.add("Bname");
-        list.add("Cname");
-        list.add("Dname");
-        list.add("Ename");
-        list.add("Fname");
 
-        mHomeAdapter=new HomeAdapter(null);
-        recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recycler.setAdapter(mHomeAdapter);
-        mHomeAdapter.addData(list);
-        View view = getActivity().getLayoutInflater().inflate(R.layout.search_header_item, null);
-        mHomeAdapter.addHeaderView(view);
 
     }
 

@@ -4,10 +4,10 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <LinearLayout
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
@@ -55,9 +55,9 @@
                         android:layout_height="23dp"
                         app:sCornersRadius="5dp"
                         android:textColor="@color/white"
-                        android:paddingLeft="13dp"
+                        android:paddingLeft="5dp"
                         android:textSize="13sp"
-                        android:paddingRight="13dp"
+                        android:paddingRight="5dp"
                         android:drawablePadding="10dp"
                         android:text="加血"
                         />
@@ -69,9 +69,9 @@
                         app:sCornersRadius="5dp"
                         android:layout_marginLeft="10dp"
                         android:textColor="@color/white"
-                        android:paddingLeft="13dp"
+                        android:paddingLeft="5dp"
                         android:textSize="13sp"
-                        android:paddingRight="13dp"
+                        android:paddingRight="5dp"
                         android:drawablePadding="10dp"
                         android:text="五连杀"
                         />
@@ -83,9 +83,9 @@
                         android:layout_marginLeft="10dp"
                         app:sCornersRadius="5dp"
                         android:textColor="@color/white"
-                        android:paddingLeft="13dp"
+                        android:paddingLeft="5dp"
                         android:textSize="13sp"
-                        android:paddingRight="13dp"
+                        android:paddingRight="5dp"
                         android:drawablePadding="10dp"
                         android:text="皇冠三颗星"
                         />

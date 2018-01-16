@@ -7,7 +7,6 @@
     android:background="@color/bg"
     tools:context="cn.com.timemachine.ui.fragment.MyFragment"
     android:weightSum="1">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="260dp">
@@ -36,6 +35,25 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:text="@string/app_name"/>
+        <ImageView
+            android:id="@+id/iv_sex"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/tv_nick"
+            android:layout_below="@id/circularImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/iv_men"/>
+        <TextView
+            android:id="@+id/age"
+            android:layout_marginStart="2dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@id/iv_sex"
+            android:layout_below="@id/circularImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23"/>
         <TextView
             android:id="@+id/tv_schoolName"
             android:layout_below="@id/tv_nick"
@@ -50,15 +68,15 @@
         <cn.com.timemachine.view.supertextview.SuperButton
             android:id="@+id/super_like"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:background="#FFF4F4F4"
             android:layout_below="@id/tv_schoolName"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:drawableLeft="@mipmap/iv_head"
+            android:layout_height="30dp"
+            android:drawableStart="@mipmap/iv_head"
             app:sCornersRadius="20dp"
             android:textColor="@color/text_color"
             android:paddingLeft="13dp"
@@ -81,7 +99,7 @@
             />
         <RelativeLayout
             android:id="@+id/layout_receive"
-            android:layout_toLeftOf="@id/view_lion"
+            android:layout_toStartOf="@id/view_lion"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
@@ -93,11 +111,11 @@
                     android:id="@+id/iv_image"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@mipmap/iv_light"/>
+                    android:src="@mipmap/iv_flower"/>
                 <LinearLayout
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/iv_image"
+                    android:layout_toEndOf="@id/iv_image"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
@@ -122,7 +140,7 @@
 
         <RelativeLayout
             android:id="@+id/layout_send"
-            android:layout_toRightOf="@id/view_lion"
+            android:layout_toEndOf="@id/view_lion"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <RelativeLayout
@@ -136,9 +154,9 @@
                     android:layout_height="30dp"
                     android:src="@mipmap/iv_sun"/>
                 <LinearLayout
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/iv_image2"
+                    android:layout_toEndOf="@id/iv_image2"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
@@ -167,7 +185,7 @@
         android:id="@+id/super_infor"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:sLeftIconRes="@mipmap/iv_head"
+        app:sLeftIconRes="@mipmap/iv_info"
         android:textSize="16sp"
         app:sLeftViewMarginLeft="10dp"
         app:sLeftIconHeight="20dp"
@@ -187,7 +205,7 @@
         app:sLeftIconRes="@mipmap/iv_head"
         android:textSize="16sp"
         app:sLeftViewMarginLeft="10dp"
-        app:sLeftIconHeight="20dp"
+        app:sLeftIconHeight="15dp"
         app:sLeftIconMarginLeft="15dp"
         app:sLeftTextColor="@color/text_color"
         app:sLeftIconWidth="20dp"
@@ -200,7 +218,7 @@
         android:id="@+id/super_fans"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:sLeftIconRes="@mipmap/iv_head"
+        app:sLeftIconRes="@mipmap/iv_fans"
         android:textSize="16sp"
         app:sLeftViewMarginLeft="10dp"
         app:sLeftIconHeight="20dp"
@@ -217,7 +235,7 @@
         android:id="@+id/super_setting"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:sLeftIconRes="@mipmap/iv_head"
+        app:sLeftIconRes="@mipmap/iv_setting"
         android:textSize="16sp"
         app:sLeftViewMarginLeft="10dp"
         app:sLeftIconHeight="20dp"
