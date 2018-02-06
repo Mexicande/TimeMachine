@@ -4,16 +4,13 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.view.View;
+import android.util.Log;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,21 +18,16 @@ import cn.com.timemachine.R;
 
 public class HtmlActivity extends AppCompatActivity {
 
-    @BindView(R.id.web_progress_bar)
-    ProgressBar webProgressBar;
-    @BindView(R.id.web_container)
-    FrameLayout webContainer;
-    private WebView mWebView;
-    String url="https://www.baidu.com";
+
+    String url = "http://shared.ivydad.com.cn/shared/minipro?id=297";
+    @BindView(R.id.webView)
+    WebView mWebView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_html);
         ButterKnife.bind(this);
-        mWebView = new WebView(this);
-        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
-        mWebView.setLayoutParams(lp);
-        webContainer.addView(mWebView, 0);
         setHtml();
     }
 
@@ -56,7 +48,6 @@ public class HtmlActivity extends AppCompatActivity {
         webSettings.setLoadsImagesAutomatically(true);
         webSettings.setBuiltInZoomControls(false);
 
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mWebView.getSettings().setMixedContentMode(
                     WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE);
@@ -65,12 +56,11 @@ public class HtmlActivity extends AppCompatActivity {
             webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
         mWebView.loadUrl(url);
+
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
-                int contentHeight = mWebView.getContentHeight();
-                Toast.makeText(HtmlActivity.this,contentHeight+"",Toast.LENGTH_SHORT).show();
 
                 return false;
             }
@@ -78,13 +68,26 @@ public class HtmlActivity extends AppCompatActivity {
             @Override
             public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 handler.proceed();
+            }
 
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+
+                mWebView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mWebView.measure(0, 0);
+                        int measuredHeight = mWebView.getMeasuredHeight();
+                        Log.i("zzz", "measuredHeight=" + measuredHeight);
+                    }
+                });
             }
         });
-
         mWebView.setWebChromeClient(new MyWebChromeClient());
 
     }
+
 
     private class MyWebChromeClient extends WebChromeClient {
 
@@ -93,5 +96,7 @@ public class HtmlActivity extends AppCompatActivity {
             super.onProgressChanged(view, newProgress);
 
         }
+
     }
+
 }

@@ -30,7 +30,8 @@
         <activity android:name=".ui.activity.SuccessRegisterActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
         <activity android:name=".ui.activity.OtherCenterActivity" />
-       <!-- <activity android:name=".ui.activity.HtmlActivity"></activity>-->
+        <!-- <activity android:name=".ui.activity.HtmlActivity"></activity> -->
+        <activity android:name=".ui.activity.FindPwActivity"></activity>
     </application>
 
 </manifest>

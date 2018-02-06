@@ -58,5 +58,9 @@
     <string name="done">确定</string>
     <string name="tag_same">标签已存在</string>
     <string name="tag_max">超过个数限制</string>
+    <string name="forget">忘记密码</string>
+    <string name="update_pw">修改密码</string>
+    <string name="please_phone">请输入您的手机号</string>
+    <string name="please_ver">请输入验证码</string>
 
 </resources>
