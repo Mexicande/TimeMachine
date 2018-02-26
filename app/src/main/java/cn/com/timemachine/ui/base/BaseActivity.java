@@ -49,8 +49,9 @@ public  class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         this.imm = null;
-        if (mImmersionBar != null)
+        if (mImmersionBar != null) {
             mImmersionBar.destroy();  //在BaseActivity里销毁
+        }
     }
     @Override
     public void finish() {

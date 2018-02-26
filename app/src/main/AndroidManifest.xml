@@ -31,7 +31,11 @@
         <activity android:name=".ui.activity.LoginActivity" />
         <activity android:name=".ui.activity.OtherCenterActivity" />
         <!-- <activity android:name=".ui.activity.HtmlActivity"></activity> -->
-        <activity android:name=".ui.activity.FindPwActivity"></activity>
+        <activity android:name=".ui.activity.FindPwActivity" />
+        <activity android:name=".ui.activity.EditInforActivity" />
+        <activity android:name=".ui.activity.EditDateActivity" />
+        <activity android:name=".ui.activity.SettingActivity" />
+        <activity android:name=".ui.activity.AboutActivity"></activity>
     </application>
 
 </manifest>

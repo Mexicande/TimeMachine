@@ -14,12 +14,11 @@
         <TextView
             android:layout_marginLeft="130dp"
             android:id="@+id/user_nick"
-            android:layout_toRightOf="@id/circularImage1"
             android:textSize="18sp"
             android:textColor="@color/text_black_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nicole Elliott"/>
+            android:text="@string/nick"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/home_text_color"
-                android:text="北京清华大学人文系"/>
+                android:text="@string/school"/>
             <LinearLayout
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
@@ -57,7 +56,7 @@
                         android:textSize="13sp"
                         android:paddingRight="13dp"
                         android:drawablePadding="10dp"
-                        android:text="加血"
+                        android:text="@string/label_one"
                         />
                     <cn.com.timemachine.view.supertextview.SuperButton
                         android:id="@+id/super_lable2"
@@ -71,7 +70,7 @@
                         android:textSize="13sp"
                         android:paddingRight="13dp"
                         android:drawablePadding="10dp"
-                        android:text="五连杀"
+                        android:text="@string/label_two"
                         />
                     <cn.com.timemachine.view.supertextview.SuperButton
                         android:id="@+id/super_lable3"
@@ -85,14 +84,14 @@
                         android:textSize="13sp"
                         android:paddingRight="13dp"
                         android:drawablePadding="10dp"
-                        android:text="皇冠三颗星"
+                        android:text="@string/label_three"
                         />
                 </LinearLayout>
                 <TextView
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="2018年的月食什么时间出现，不容错过!"
+                    android:text="@string/description"
                     android:textColor="@color/text_color"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -101,7 +100,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2017-10-19  21:00 ~ 22:30"
+                    android:text="@string/example"
                     android:textColor="@color/text_color"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -125,7 +124,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="已关注"
+                        android:text="@string/attention"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:drawablePadding="5dp"
@@ -145,7 +144,7 @@
                             android:paddingLeft="15dp"
                             android:textSize="16sp"
                             android:paddingRight="15dp"
-                            android:text="预约"
+                            android:text="@string/order"
                             />
                     </RelativeLayout>
                 </LinearLayout>

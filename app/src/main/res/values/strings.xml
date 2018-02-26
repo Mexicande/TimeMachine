@@ -44,8 +44,9 @@
     <string name="toast_unexpected_error">Unexpected error</string>
 
     <string name="file_provider_authorities">com.yalantis.ucrop.provider</string>
+    <string name="back">返回</string>
 
-
+    <!--其他人资料-->
     <string name="user_information">个人资料</string>
     <string name="my_attention">我的关注</string>
     <string name="my_fans">我的粉丝</string>
@@ -62,5 +63,33 @@
     <string name="update_pw">修改密码</string>
     <string name="please_phone">请输入您的手机号</string>
     <string name="please_ver">请输入验证码</string>
+    <string name="attention">已关注</string>
+    <string name="order">预约</string>
+    <string name="description">2018年的月食什么时间出现，不容错过!</string>
+    <string name="example">2017-10-19 21:00 ~ 22:30</string>
+    <string name="label_three">皇冠三颗星</string>
+    <string name="label_two">五连杀</string>
+    <string name="label_one">加血</string>
+    <string name="school">北京清华大学人文系</string>
+    <string name="nick">Nicole Elliott</string>
+
+
+    <!--  user_information-->
+    <string name="user_header">头像</string>
+    <string name="user_nick">昵称</string>
+    <string name="user_name">姓名</string>
+    <string name="user_sex">性别</string>
+    <string name="user_birthday">出生日期</string>
+    <string name="user_city">现居城市</string>
+    <string name="user_label">我的标签</string>
+    <string name="user_desc">穿梭誓言</string>
+    <string name="user_title">编辑个人资料</string>
+
+    <!--   setting    -->
+    <string name="SettingTitle">设置</string>
+    <string name="My_location">我的位置</string>
+    <string name="About">关于时光机</string>
+    <string name="Quit">退出登录</string>
+    <string name="location_desc">打开后，可以查看你与好友的相对距离</string>
 
 </resources>

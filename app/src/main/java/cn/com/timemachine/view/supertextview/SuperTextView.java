@@ -770,7 +770,7 @@ public class SuperTextView extends RelativeLayout {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             if (mSwitchMinWidth != 0) {
-                mSwitch.setSwitchMinWidth(mSwitchMinWidth);
+                mSwitch.setSwitchMinWidth(20);
             }
             if (mSwitchPadding != 0) {
                 mSwitch.setSwitchPadding(mSwitchPadding);
